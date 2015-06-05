@@ -8,3 +8,15 @@ body{
 .popover{
     max-width: 30%;
 }
+
+
+a.list-group-item {
+    height:auto;
+    min-height:220px;
+}
+a.list-group-item.active small {
+    color:#fff;
+}
+.stars {
+    margin:20px auto 1px;    
+}

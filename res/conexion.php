@@ -1,6 +1,6 @@
 <?php 
 function obtenerConexion() {
-    $db = new mysqli('localhost', 'root', '*migra123', 'bdcertificaciones');
+    $db = new mysqli('localhost', 'root', '123', 'testsolution');
     // $db = new mysqli('localhost', 'certificacionMov', '*migra123**', 'bdcertificaciones');
     // $db = new mysqli('localhost', 'root', '123', 'bdcertificaciones');
     $db -> query("SET NAMES 'UTF8' ");

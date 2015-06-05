@@ -1,12 +1,13 @@
-<?php  
-require_once('res/conexion.php');
-require_once('res/funciones.php');
-if(!isset($_SESSION)) 
-{ 
-    session_start();
-}
+<?php 
+ini_set('display_errors', 1);  
+// require_once('res/conexion.php');
+// require_once('res/funciones.php');
+// if(!isset($_SESSION)) 
+// { 
+//     session_start();
+// }
 
-sessionExp();
+// sessionExp();
 //require_once('funciones.php');
 ?>
 <!doctype html>

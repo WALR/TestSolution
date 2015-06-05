@@ -1,3 +1,4 @@
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -92,7 +93,7 @@
     <div class="col-md-7">
       <h2 class="featurette-heading" style="margin-top:10px;">My Antivirus <span style="color:#004366">Test</span> <br><small class="text-muted">La solución a tus problemas.</small></h2>
       <p class="lead" style="text-align:justify;">Nuestra herramienta con un par de preguntas te podra indicar el antivirus que mejor se ajusta a tus necesidades y a las prestaciones de tu computador, asi podras estar tranquilo sabiendo que tienes la mejor protección para ti.</p>
-      <p><a class="btn btn-lg btn-primary" href="/test/" role="button">Realizar Test</a></p>
+      <p><a class="btn btn-lg btn-primary" href="?ac=test" role="button">Realizar Test</a></p>
     </div>
     <div class="col-md-5" style="margin-top:-32px;">
       <!-- <span class="glyphicon glyphicon-tasks" aria-hidden="true" style="font-size: 23em;color: #4E78BC;"></span> -->
