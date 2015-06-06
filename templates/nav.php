@@ -1,7 +1,6 @@
 <?php 
 require_once('res/funciones.php');
-ini_set('display_errors', 'Off');
-ini_set('display_errors', 0); 
+ini_set('display_errors', 1); 
 
 // if(!isset($_SESSION)) 
 // { 
@@ -68,15 +67,15 @@ ini_set('display_errors', 0);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Test Solution</a>
+          <a class="navbar-brand" href="/TestSolution/">Test Solution</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li id="inicio" class="active"><a href="?ac=inicio">Inicio</a></li>
             <li id="test" class=""><a href="?ac=test">My Antivirus Test</a></li>
             <li id="antivirus" class=""><a href="?ac=antivirus">Antivirus</a></li>
-            <li id="acerca" class=""><a href="?ac=acerca">Acerca</a></li>
-            <li id="contacto" class=""><a href="?ac=contacto">Contacto</a></li>
+ <!--            <li id="acerca" class=""><a href="?ac=acerca">Acerca</a></li>
+            <li id="contacto" class=""><a href="?ac=contacto">Contacto</a></li> -->
           </ul>
           <ul class="nav navbar-nav pull-right">
             <li id="login" class=""><a href="?ac=login">Login</a></li>

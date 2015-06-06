@@ -319,6 +319,7 @@ function DatosAsunto()
 
 function obtenerAntivirus() {
     $antivirus = array();
+    //$sql = "SELECT id, nombre, descripcion, precio, imagen from antivirus ORDER BY RAND()"; 
     $sql = "SELECT id, nombre, descripcion, precio, imagen from antivirus ORDER BY nombre"; 
     $db = obtenerConexion();
     $db -> query("SET NAMES 'UTF8' ");
@@ -327,8 +328,8 @@ function obtenerAntivirus() {
     // creamos objetos de la clase país y los agregamos al arreglo
     while($row = $result->fetch_assoc()){
         // $row['nombre_pais'] = mb_convert_encoding($row['nombre_pais'], 'UTF-8', mysqli_character_set_name($db));
-        // $row['nacionalidad_pais'] = mb_convert_encoding($row['nacionalidad_pais'], 'UTF-8', mysqli_character_set_name($db));          
-        $antiviru = new antiviru($row['id'], $row['nombre'], $row['descripcion'], $row['precio'], $row['imagen']);
+        // $row['nacionalidad_pais'] = mb_convert_encoding($row['nacionalidad_pais'], 'UTF-8', mysqli_character_set_name($db));   
+        $antiviru = new antiviru($row['id'], $row['nombre'], $row['descripcion'], number_format($row['precio'], 2), $row['imagen']);
         array_push($antivirus, $antiviru);
     }
 
@@ -338,6 +339,48 @@ function obtenerAntivirus() {
         
         return $antivirus;
 }
+
+function obtenerAntivirusr() {
+    $antivirus = array();
+    $sql = "SELECT id, nombre, descripcion, precio, imagen from antivirus ORDER BY RAND() LIMIT 3"; 
+    //$sql = "SELECT id, nombre, descripcion, precio, imagen from antivirus ORDER BY nombre"; 
+    $db = obtenerConexion();
+    $db -> query("SET NAMES 'UTF8' ");
+    // obtenemos todos los países
+    $result = ejecutarQuery($db, $sql);
+    // creamos objetos de la clase país y los agregamos al arreglo
+    while($row = $result->fetch_assoc()){
+        // $row['nombre_pais'] = mb_convert_encoding($row['nombre_pais'], 'UTF-8', mysqli_character_set_name($db));
+        // $row['nacionalidad_pais'] = mb_convert_encoding($row['nacionalidad_pais'], 'UTF-8', mysqli_character_set_name($db));          
+        $antiviru = new antiviru($row['id'], $row['nombre'], $row['descripcion'], number_format($row['precio'], 2), $row['imagen']);
+        array_push($antivirus, $antiviru);
+    }
+
+        cerrarConexion($db, $result);
+
+        // devolvemos el arreglo
+        
+        return $antivirus;
+}
+
+function obtenerAntivirusDetalle($id) {
+    // $antivirus = array();
+    $sql = "SELECT id, nombre, descripcion, precio, imagen from antivirus where id =".$id; 
+    //$sql = "SELECT id, nombre, descripcion, precio, imagen from antivirus ORDER BY nombre"; 
+    $db = obtenerConexion();
+    $db -> query("SET NAMES 'UTF8' ");
+    // obtenemos todos los países
+    $result = ejecutarQuery($db, $sql);
+    // creamos objetos de la clase país y los agregamos al arreglo
+    $row = $result->fetch_assoc();
+    $antiviru = new antiviru($row['id'], $row['nombre'], $row['descripcion'], number_format($row['precio'], 2), $row['imagen']);
+    // array_push($antivirus, $antiviru);
+    cerrarConexion($db, $result);
+    return $antiviru;
+}
+
+
+
 
 class antiviru {
     public $id;

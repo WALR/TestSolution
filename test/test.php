@@ -1,141 +1,234 @@
+<?php 
+require_once('res/funciones.php');
+
+
+
+ ?>
+
 <div class="container marketing">
-  <div class="row featurette" style="margin:80px 0;" hidden>
+  <div id="testSet" class="row featurette" style="margin:80px 0;" >
     <div class="col-md-12">
         <h2 class="featurette-heading" style="margin-top:10px;">My Antivirus <span style="color:#004366">Test</span> <br></h2>
         <hr>
-        <form>
-            <div class="form-group col-md-12">
-              <label class="form-group col-lg-12">Selecciona tu sistema operativo:</label>
-              <div class="form-group col-lg-4">
-                <img class="img-circle" src="img/logo-windows.jpg" alt="Windows" width="140" height="140">
-                <div class="checkbox">
-                  <label><input type="radio" name="os" onchange="arqt('windows');" value="windows" /> Windows</label>
-                </div>
-                <div class="form-group col-md-12" id="arwindows" hidden>
-                  <div class="form-group col-md-6">
-                    <label for="ram">Arquitectura <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Arquitectura" data-content="La arquitectura de computadoras es el diseño conceptual y la estructura operacional fundamental de un sistema de computadora.<br><a class='btn btn-primary' onclick='miArquitecutra();'>¿Cual es mi Arquitectura?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="arqwindows" placeholder="Arquitectura">
-                      <div class="input-group-addon">Bits</div>
-                    </div>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="ram">RAM <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Memoria RAM" data-content="En la RAM se cargan todas las instrucciones que ejecutan la unidad central de procesamiento (procesador) y otras unidades de cómputo.<br><a class='btn btn-primary' onclick='miRAM();'>¿Cuanto de RAM tengo?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="ram" placeholder="RAM" tabindex="1">
-                      <div class="input-group-addon">
-                        <select name="ram" id="ram">
-                          <option value="gb">GB</option>
-                          <option value="mb">MB</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
+        <div class="form-group col-md-12">
+          <label class="form-group col-lg-11 col-md-offset-1">Selecciona tu sistema operativo:</label>
+          <div class="form-group col-lg-4">
+            <img class="img-circle" src="img/logo-windows.jpg" alt="Windows" width="140" height="140">
+            <div class="checkbox">
+              <label><input type="radio" name="os" class="os" onchange="arqt('windows');" value="windows" data-toggle="tooltip" data-placement="top" title="Seleccione su Sistema Operativo" /> Windows</label>
+            </div>
+            <div class="form-group col-md-12" id="arwindows" hidden>
+              <div class="form-group col-md-6">
+                <label for="ram">Arquitectura <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Arquitectura" data-content="La arquitectura de computadoras es el diseño conceptual y la estructura operacional fundamental de un sistema de computadora.<br><a class='btn btn-primary' onclick='miArquitecutra();'>¿Cual es mi Arquitectura?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
+                <div class="input-group">
+                  <input type="text" onkeypress="return checkSoloNum(event)" class="form-control" id="arqwindows" placeholder="Arquitectura" data-toggle="tooltip" data-placement="top" title="Ingrese su Arquitectura">
+                  <div class="input-group-addon">Bits</div>
                 </div>
               </div>
-              <div class="form-group col-lg-4">
-                <img class="img-circle" src="img/logo-mac.jpg" alt="MacOs" width="140" height="140">
-                <div class="checkbox">
-                  <label><input type="radio" name="os" onchange="arqt('mac');" value="macos" /> Mac OS</label>
-                </div>
-                <div class="form-group col-md-12" id="armac" hidden>
-                  <div class="form-group col-md-6">
-                    <label for="ram">Arquitectura <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Arquitectura" data-content="La arquitectura de computadoras es el diseño conceptual y la estructura operacional fundamental de un sistema de computadora.<br><a class='btn btn-primary' onclick='miArquitecutra();'>¿Cual es mi Arquitectura?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="arqwindows" placeholder="Arquitectura">
-                      <div class="input-group-addon">Bits</div>
-                    </div>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="ram">RAM <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Memoria RAM" data-content="En la RAM se cargan todas las instrucciones que ejecutan la unidad central de procesamiento (procesador) y otras unidades de cómputo.<br><a class='btn btn-primary' onclick='miRAM();'>¿Cuanto de RAM tengo?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="ram" placeholder="RAM">
-                      <div class="input-group-addon">
-                        <select name="ram" id="ram">
-                          <option value="gb">GB</option>
-                          <option value="mb">MB</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group col-lg-4">
-                <img class="img-circle" src="img/logo-linux.png" alt="Linux" width="140" height="140">
-                <div class="checkbox">
-                  <label><input type="radio" name="os" onchange="arqt('linux');" value="linux" /> Linux</label>
-                </div>
-                <div class="form-group col-md-12" id="arlinux" hidden>
-                  <div class="form-group col-md-6">
-                    <label for="ram">Arquitectura <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Arquitectura" data-content="La arquitectura de computadoras es el diseño conceptual y la estructura operacional fundamental de un sistema de computadora.<br><a class='btn btn-primary' onclick='miArquitecutra();'>¿Cual es mi Arquitectura?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="arqwindows" placeholder="Arquitectura">
-                      <div class="input-group-addon">Bits</div>
-                    </div>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="ram">RAM <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Memoria RAM" data-content="En la RAM se cargan todas las instrucciones que ejecutan la unidad central de procesamiento (procesador) y otras unidades de cómputo.<br><a class='btn btn-primary' onclick='miRAM();'>¿Cuanto de RAM tengo?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="ram" placeholder="RAM">
-                      <div class="input-group-addon">
-                        <select name="ram" id="ram">
-                          <option value="gb">GB</option>
-                          <option value="mb">MB</option>
-                        </select>
-                      </div>
-                    </div>
+              <div class="form-group col-md-6">
+                <label for="ram">RAM <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Memoria RAM" data-content="En la RAM se cargan todas las instrucciones que ejecutan la unidad central de procesamiento (procesador) y otras unidades de cómputo.<br><a class='btn btn-primary' onclick='miRAM();'>¿Cuanto de RAM tengo?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
+                <div class="input-group">
+                  <input type="text" onkeypress="return checkSoloNum(event)" class="form-control" id="ramwindows" placeholder="RAM" tabindex="1" data-toggle="tooltip" data-placement="top" title="Ingrese su cantidad de memoria RAM">
+                  <div class="input-group-addon">
+                    <select name="ram" id="ram">
+                      <option value="gb">GB</option>
+                      <option value="mb">MB</option>
+                    </select>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="form-group col-md-12"> 
-              <label for="usos">Seleccione los usos cotidiano de su computadora:</label>           
-              <div class="col-xl-8 col-sm-8 col-md-8 col-md-offset-2">
-                <div data-toggle="buttons">
-                  <label class="sp btn btn-info">
-                    <input type="checkbox"> Almacenamiento de Documentos/Fotos/Videos
-                  </label>
-                  <label class="sp btn btn-info">
-                    <input type="checkbox"> Descargar Video y/o Peliculas
-                  </label>
-                  <label class="sp btn btn-info">
-                    <input type="checkbox"> Descargar Musica
-                  </label>
-                  <label class="sp btn btn-info">
-                    <input type="checkbox"> Redes Sociales
-                  </label>
-                  <label class="sp btn btn-info">
-                    <input type="checkbox"> Entretenimiento
-                  </label>
-                  <label class="sp btn btn-info">
-                    <input type="checkbox"> Navegar en Internet
-                  </label>
-                  <label class="sp btn btn-info">
-                    <input type="checkbox"> Tareas de la Universidad
-                  </label>
-                  <label class="sp btn btn-info">
-                    <input type="checkbox"> Profesional (Trabajo)
-                  </label>
-                  <label class="sp btn btn-info">
-                    <input type="checkbox"> Manejo de Finanzas
-                  </label>
-                  <label class="sp btn btn-info">
-                    <input type="checkbox"> Mi Empresa
-                  </label>
+          </div>
+          <div class="form-group col-lg-4">
+            <img class="img-circle" src="img/logo-mac.jpg" alt="MacOs" width="140" height="140">
+            <div class="checkbox">
+              <label><input type="radio" name="os" class="os" onchange="arqt('mac');" value="mac" data-toggle="tooltip" data-placement="top" title="Seleccione su Sistema Operativo"/> Mac OS</label>
+            </div>
+            <div class="form-group col-md-12" id="armac" hidden>
+              <div class="form-group col-md-6">
+                <label for="ram">Arquitectura <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Arquitectura" data-content="La arquitectura de computadoras es el diseño conceptual y la estructura operacional fundamental de un sistema de computadora.<br><a class='btn btn-primary' onclick='miArquitecutra();'>¿Cual es mi Arquitectura?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
+                <div class="input-group">
+                  <input type="text" onkeypress="return checkSoloNum(event)" class="form-control" id="arqmac" placeholder="Arquitectura" data-toggle="tooltip" data-placement="top" title="Ingrese su Arquitectura">
+                  <div class="input-group-addon">Bits</div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="ram">RAM <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Memoria RAM" data-content="En la RAM se cargan todas las instrucciones que ejecutan la unidad central de procesamiento (procesador) y otras unidades de cómputo.<br><a class='btn btn-primary' onclick='miRAM();'>¿Cuanto de RAM tengo?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
+                <div class="input-group">
+                  <input type="text" onkeypress="return checkSoloNum(event)" class="form-control" id="rammac" placeholder="RAM" data-toggle="tooltip" data-placement="top" title="Ingrese su cantidad de memoria RAM">
+                  <div class="input-group-addon">
+                    <select name="ram" id="ram">
+                      <option value="gb">GB</option>
+                      <option value="mb">MB</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
-            <hr>
-            <div class="form-group col-md-6 col-md-offset-5">
-              <button type="submit" class="btn btn-success btn-lg">
-                <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-                Enviar Test
-              </button>
+          </div>
+          <div class="form-group col-lg-4">
+            <img class="img-circle" src="img/logo-linux.png" alt="Linux" width="140" height="140">
+            <div class="checkbox">
+              <label><input type="radio" name="os" class="os" onchange="arqt('linux');" value="linux" data-toggle="tooltip" data-placement="top" title="Seleccione su Sistema Operativo"/> Linux</label>
             </div>
-        </form>
+            <div class="form-group col-md-12" id="arlinux" hidden>
+              <div class="form-group col-md-6">
+                <label for="ram">Arquitectura <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Arquitectura" data-content="La arquitectura de computadoras es el diseño conceptual y la estructura operacional fundamental de un sistema de computadora.<br><a class='btn btn-primary' onclick='miArquitecutra();'>¿Cual es mi Arquitectura?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
+                <div class="input-group">
+                  <input type="text" onkeypress="return checkSoloNum(event)" class="form-control" id="arqlinux" placeholder="Arquitectura" data-toggle="tooltip" data-placement="top" title="Ingrese su Arquitectura">
+                  <div class="input-group-addon">Bits</div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="ram">RAM <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Memoria RAM" data-content="En la RAM se cargan todas las instrucciones que ejecutan la unidad central de procesamiento (procesador) y otras unidades de cómputo.<br><a class='btn btn-primary' onclick='miRAM();'>¿Cuanto de RAM tengo?</a>"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></label>
+                <div class="input-group">
+                  <input type="text" onkeypress="return checkSoloNum(event)" class="form-control" id="ramlinux" placeholder="RAM" data-toggle="tooltip" data-placement="top" title="Ingrese su cantidad de memoria RAM">
+                  <div class="input-group-addon">
+                    <select name="ram" id="ram">
+                      <option value="gb">GB</option>
+                      <option value="mb">MB</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label id="usocot" class="form-group col-lg-11 col-md-offset-1" data-toggle="tooltip" data-placement="top" title="Seleccione al menos un uso cotidiano">Seleccione los usos cotidiano de su computadora:</label> 
+          <div class="col-xl-8 col-sm-8 col-md-8 col-md-offset-2">
+            <div data-toggle="buttons">
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="uso"> Almacenamiento de Documentos/Fotos/Videos
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="uso"> Descargar Video y/o Peliculas
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="uso"> Descargar Musica
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="uso"> Redes Sociales
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="uso"> Entretenimiento
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="uso"> Navegar en Internet
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="uso"> Tareas de la Universidad
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="uso"> Profesional (Trabajo)
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="uso"> Manejo de Finanzas
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="uso"> Mi Empresa
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label id="prog" class="form-group col-lg-11 col-md-offset-1" data-toggle="tooltip" data-placement="top" title="Seleccione al menos un programa">Seleccione los programas que tiene instalados su computadora:</label> 
+          <div class="col-xl-8 col-sm-8 col-md-8 col-md-offset-2">
+            <div data-toggle="buttons">
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="prog"> Ares
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="prog"> Softonic
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="prog"> Internet Explorer
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="prog"> uTorrent
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="prog"> eMule
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="prog"> aTube Catcher
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="prog"> Youtube Downloader
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="prog"> VideoTodo
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="prog"> 4Shared
+              </label>
+              <label class="sp btn btn-info">
+                <input type="checkbox" name="prog"> Otros
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="form-group col-md-6 col-md-offset-5">
+          <button onclick="testRecom();" class="btn btn-success btn-lg">
+            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+            Enviar Test
+          </button>
+        </div>
     </div>
   </div>
   
+  <div id="recom" class="row featurette" style="margin:80px 0;" hidden>
+    <div class="well">
+        <span class="pull-left">
+          <a class="btn btn-lg btn-default" href="?ac=test" role="button">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            Realizar Test
+          </a>
+        </span>
+        <h1 class="text-center">Antivirus Recomendados para ti</h1>
+        <div class="list-group">
+          <?php
+            $antivirus = obtenerAntivirusr();
+            $i=1;
+            foreach ($antivirus as $ant) {
+                $ac = "active";
+                if ($i>1) {
+                  $ac = ""; 
+                }
+                echo '<a class="list-group-item '.$ac.'">
+                        <div class="media col-md-3">
+                            <figure class="pull-left">
+                                <img class="media-object img-rounded img-responsive"  src="img/'.$ant->imagen.'" alt="'.$ant->nombre.'" width="350" height="200" style="height: 200px;width: 350px;">
+                            </figure>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="list-group-item-heading"><b>'.$ant->nombre.'</b></h4>
+                            <p class="list-group-item-text"> 
+                            <b>'.$ant->descripcion.'</b>
+                            </p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h2> Q.'.$ant->precio.'</h2>
+                            <button type="button" class="btn btn-success btn-lg btn-block"> Comprar ahora! </button>
+                            <div class="stars">
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
+                            <p> Licencia por 1 año</p>
+                        </div>
+                  </a>'; 
+                  $i++;       
+            }
+          ?> 
+        </div>
+    </div>
+  </div>
+</div>
+
   <div id="ModalArquitectura" class="modal fade">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -282,102 +375,6 @@
   </div>
 
 
-  <div class="row" style="margin:80px 0;">
-    <div class="well">
-        <h1 class="text-center">Antivirus Recomendados para ti</h1>
-        <div class="list-group">
-          <a class="list-group-item active">
-                <div class="media col-md-3">
-                    <figure class="pull-left">
-                        <img class="media-object img-rounded img-responsive"  src="img/AVG_logo.png" alt="avg" width="350" height="200" style="height: 200px;width: 350px;">
-                    </figure>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="list-group-item-heading"><b>AVG</b></h4>
-                    <p class="list-group-item-text"> <b>Analiza el comportamiento de un software en tiempo real para determinar si está seguro. 
-                    Esta característica ayuda a protegerlo frente a las últimas amenazas y los programas maliciosos que podrían robar sus 
-                    contraseñas, detalles de su cuenta bancaria y otros datos digitales valiosos.</b>
-                    </p>
-                </div>
-                <div class="col-md-3 text-center">
-                    <h2> Q.300.00</h2>
-                    <button type="button" class="btn btn-success btn-lg btn-block"> Comprar ahora! </button>
-                    <div class="stars">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p> Puntuación 4.5 <small> / </small> 5 </p>
-                </div>
-          </a>
-          <a class="list-group-item">
-                <div class="media col-md-3">
-                    <figure class="pull-left">
-                        <img class="media-object img-rounded img-responsive" src="img/kaspersky-logo.jpg" alt="avg" width="350" height="200" style="height: 200px;width: 350px;" >
-                    </figure>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="list-group-item-heading"> <b>Kaspersky</b> </h4>
-                    <p class="list-group-item-text"> 
-                        <b>
-                          Kaspersky Internet Security – multidispositivos 2015 es la solución de licencia única que protege tu identidad 
-                          digital, tus finanzas, tu información confidencial y a tus hijos. Cuando realizas operaciones bancarias, compras 
-                          o socializas en línea, Internet presenta siempre las mismas amenazas.
-                        </b>
-                    </p>
-                </div>
-                <div class="col-md-3 text-center">
-                    <h2>Q.310.00</h2>
-                    <button type="button" class="btn btn-success btn-lg btn-block">Comprar ahora!</button>
-                    <div class="stars">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p> Puntuación 3.9 <small> / </small> 5 </p>
-                </div>
-          </a>
-          <a class="list-group-item">
-                <div class="media col-md-3">
-                    <figure class="pull-left">
-                        <img class="media-object img-rounded img-responsive" src="img/NOD32-logo.png" alt="avg" width="350" height="200" style="height: 200px;width: 350px;" >
-                    </figure>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="list-group-item-heading"> <b>Nod 32</b> </h4>
-                    <p class="list-group-item-text"> 
-                        <b>
-                          Ante las crecientes amenazas informáticas tanto tu información como tu identidad necesitan estar protegidas, 
-                          es por eso que ESET desarrolló ESET NOD32 Antivirus y ESET Smart Security. Las soluciones de seguridad que brindan 
-                          una eficaz y veloz protección sin consumir gran cantidad de recursos de tu equipo.
-                        </b>
-                    </p>
-                </div>
-                <div class="col-md-3 text-center">
-                    <h2>Q.250.00</h2>
-                    <button type="button" class="btn btn-success btn-lg btn-block">Comprar ahora!</button>
-                    <div class="stars">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <p> Puntuación 3 <small> / </small> 5 </p>
-                </div>
-          </a>
-        </div>
-        </div>
-    </div>
-  </div>
-
-
-
-
 
 
 
@@ -392,6 +389,39 @@
 
 
 <script>
+function testRecom(){
+  // console.log($('input:radio[name="os"]').is(":checked"));
+  if (!$('input:radio[name="os"]').is(":checked")) {
+    $('input:radio[name="os"]').tooltip('show');
+  }else{
+    var sl = $('input:radio[name="os"]:checked').val();
+    if ($('#arq'+sl).val()=="") {
+      $('#arq'+sl).focus();
+      $('#arq'+sl).tooltip('show');
+    }else{
+      if ($('#ram'+sl).val()=="") {
+        $('#ram'+sl).focus();
+        $('#ram'+sl).tooltip('show');
+      }else{
+        usocot
+        if (!$('input:checkbox[name="uso"]').is(":checked")) {
+          $('#usocot').tooltip('show');
+        }else{
+          if (!$('input:checkbox[name="prog"]').is(":checked")) {
+            $('#prog').tooltip('show');
+          }else{
+            $("#testSet").slideUp('slow');
+            $("#recom").slideDown('slow');
+            $("html, body").animate({ scrollTop: 0 }, 1000);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
 function arqt(tp) {
   switch(tp){
     case 'windows':

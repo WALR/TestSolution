@@ -1,4 +1,10 @@
 
+<?php 
+require_once('res/funciones.php');
+
+
+
+ ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -12,7 +18,7 @@
         <div class="carousel-caption">
           <h1 style="font-weight:bold;text-shadow: 2px 2px 3px #000000;">My antivirus <span >Test</span></h1>
           <p style="text-align:justify;font-weight:bold;text-shadow: 2px 2px 3px #000000;">Es la mejor herramienta para saber que antivirus se adapta a la tu necesidades y a los requerimientos de tu computadora.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Ver mas</a></p>
+          <p><a class="btn btn-lg btn-primary" href="?ac=test" role="button">Realizar Test</a></p>
         </div>
       </div>
     </div>
@@ -22,7 +28,7 @@
         <div class="carousel-caption">
           <h1 style="font-weight:bold;text-shadow: 2px 2px 3px #000000;">¿Que es un virus?</h1>
           <p style="text-align:justify;font-weight:bold;text-shadow: 2px 2px 3px #000000;">Los virus informáticos tienen mas de 40 años viviendo entre nosotros y nuestros ordenadores. Estos programas maliciosos que buscan acceder a nuestros datos para dañarlos, robarlos, o simplemente molestarnos; han permanecido como una amenaza inamovible en el mundo de la computación, y se hacen cada vez más complejos..</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Ver mas</a></p>
+          <!-- <p><a class="btn btn-lg btn-primary" href="#" role="button">Ver mas</a></p> -->
         </div>
       </div>
     </div>
@@ -105,24 +111,17 @@
 
   <!-- Three columns of text below the carousel -->
   <div class="row">
-    <div class="col-lg-4">
-      <img class="img-circle" src="img/NOD32-logo.png" alt="Nod 32" width="140" height="140">
-      <h2>Nod 32</h2>
-      <p style="text-align:justify;">Ante las crecientes amenazas informáticas tanto tu información como tu identidad necesitan estar protegidas, es por eso que ESET desarrolló ESET NOD32 Antivirus y ESET Smart Security. Las soluciones de seguridad que brindan una eficaz y veloz protección sin consumir gran cantidad de recursos de tu equipo.</p>
-      <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <img class="img-circle" src="img/AVG_logo.png" alt="AVG" width="140" height="140">
-      <h2>AVG</h2>
-      <p style="text-align:justify;">Analiza el comportamiento de un software en tiempo real para determinar si está seguro. Esta característica ayuda a protegerlo frente a las últimas amenazas y los programas maliciosos que podrían robar sus contraseñas, detalles de su cuenta bancaria y otros datos digitales valiosos.</p>
-      <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <img class="img-circle" src="img/kaspersky-logo.jpg" alt="Kaspersky" width="140" height="140">
-      <h2>Kaspersky</h2>
-      <p style="text-align:justify;">Kaspersky Internet Security – multidispositivos 2015 es la solución de licencia única que protege tu identidad digital, tus finanzas, tu información confidencial y a tus hijos. Cuando realizas operaciones bancarias, compras o socializas en línea, Internet presenta siempre las mismas amenazas.</p>
-      <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
-    </div><!-- /.col-lg-4 -->
+    <?php
+      $antivirus = obtenerAntivirusr();
+      foreach ($antivirus as $ant) {
+          echo '<div class="col-lg-4">
+                  <img class="img-circle" src="img/'.$ant->imagen.'" alt="'.$ant->nombre.'" width="140" height="140">
+                  <h2>'.$ant->nombre.'</h2>
+                  <p style="text-align:justify;">'.$ant->descripcion.'</p>
+                  <p><a class="btn btn-default" href="?ac=antivirus&ant='.$ant->id.'" role="button">Ver detalles &raquo;</a></p>
+                </div>'; 
+      }
+    ?> 
   </div>
 
   <footer>
